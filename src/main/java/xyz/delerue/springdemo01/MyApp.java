@@ -12,7 +12,9 @@ public class MyApp {
         Coach theCoach = context.getBean("myCoach", Coach.class);
         System.out.println(theCoach.getDailyWorkout());
         System.out.println(theCoach.getDailyFortune());
+        Coach theCoachBis = context.getBean("myCoach", Coach.class);
 
+        System.out.println(theCoach == theCoachBis);
         CricketCoach theSecondCoach = context.getBean("mySecondCoach", CricketCoach.class);
         System.out.println(theSecondCoach.getDailyWorkout());
         System.out.println(theSecondCoach.getDailyFortune());

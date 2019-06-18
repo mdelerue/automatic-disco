@@ -19,4 +19,12 @@ public class BaseballCoach implements Coach {
     public String getDailyFortune() {
         return "Hit the ball : " + this.fortuneService.getFortune();
     }
+
+    public void doMyStartupStuff() {
+        System.out.println("Initializing Baseball coach " + this);
+    }
+
+    public void doMyShutdownMessyThings() {
+        System.out.println("I'm shutting down " + this);
+    }
 }
