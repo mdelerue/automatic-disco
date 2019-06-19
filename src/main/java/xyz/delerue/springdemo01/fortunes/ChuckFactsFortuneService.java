@@ -1,10 +1,13 @@
 package xyz.delerue.springdemo01.fortunes;
 
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@Component
 public class ChuckFactsFortuneService implements FortuneService {
 
     private List<String> fortunes = Stream.of("Chuck Norris threw a grenade and killed 50 people, then it exploded.", "Death once had a near-Chuck-Norris experience.", "Chuck Norris can strangle you with a cordless phone.")

@@ -1,5 +1,8 @@
 package xyz.delerue.springdemo01.fortunes;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class HappyFortuneService implements FortuneService {
 
 

@@ -1,11 +1,21 @@
 package xyz.delerue.springdemo01.coaches;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import xyz.delerue.springdemo01.fortunes.FortuneService;
 
+import java.beans.BeanProperty;
+
+@Component
 public class CricketCoach implements Coach {
 
     private FortuneService fortuneService;
+
+    @Value("${foo.email}")
     private String emailAddress;
+    @Value("${foo.team}")
     private String team;
 
     public void setEmailAddress(String emailAddress) {
@@ -18,8 +28,11 @@ public class CricketCoach implements Coach {
         this.team = team;
     }
 
-    public void setFortuneService(FortuneService fortuneService) {
-        System.out.println("Inside setter - setFortuneService");
+    @Autowired
+    @Qualifier("fileSystemFortuneService")
+    public void yoyoyoyo(FortuneService fortuneService) {
+        System.out.println("Inside yoyoyoo - setFortuneService");
+        System.out.println(">> " + fortuneService);
         this.fortuneService = fortuneService;
     }
 
@@ -42,6 +55,6 @@ public class CricketCoach implements Coach {
 
     @Override
     public String getDailyFortune() {
-        return this.fortuneService.getFortune() + ". We play against Pakistan !!";
+        return this.fortuneService.getFortune() ;
     }
 }
